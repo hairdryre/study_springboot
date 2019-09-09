@@ -1,0 +1,11 @@
+server:
+  servlet:
+    #项目根目录
+    context-path: /study/springboot
+spring:
+  application:
+    #项目名称
+    name: web-study-springboot
+  #激活的分支
+  profiles:
+    active: test
