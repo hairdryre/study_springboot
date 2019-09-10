@@ -1,0 +1,26 @@
+server:
+  servlet:
+    #项目根目录
+    context-path: /study/springboot
+spring:
+  application:
+    #项目名称
+    name: web-study-springboot
+  #激活的分支
+  profiles:
+    active: dev
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+  messages:
+    encoding: UTF-8
+  banner:
+    charset: UTF-8
+logging:
+  #配置日志位置
+  file: /opt/logs/web-learn-springboot/web-learn-springboot.out
+  #配置日志输出格式（定位到哪行输出，方便排查）
+  pattern:
+      console: '%d{HH:mm:ss.SSS} %-5level %logger{36} [%line] - %msg%n'
