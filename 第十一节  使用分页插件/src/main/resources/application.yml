@@ -1,0 +1,52 @@
+server:
+  servlet:
+    #项目根目录
+    context-path: /study/springboot
+spring:
+  application:
+    #项目名称
+    name: web-study-springboot
+  #激活的分支
+  profiles:
+    active: dev
+  #编码
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+  messages:
+    encoding: UTF-8
+  banner:
+    charset: UTF-8
+
+logging:
+  #配置日志位置
+  file: /opt/logs/web-learn-springboot/web-learn-springboot.out
+  #配置日志输出格式（定位到哪行输出，方便排查）
+  pattern:
+      console: '%d{HH:mm:ss.SSS} %-5level %logger{36} [%line] - %msg%n'
+
+mybatis:
+  mapperLocations: classpath:mybatis/mapper/*.xml
+  configLocation: classpath:mybatis/mybatis-config.xml
+
+pagehelper:
+  #当前数据库
+  helperDialect: mysql
+  #pageNum<=0 ,query first page
+  #pageNum > max count , query last page
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+#自定义参数
+define:
+  userinfo:
+    username: zhoutianyu
+    age: 24
+    position: java engineer
+  department:
+    name: 研发部门
+
+
