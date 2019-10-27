@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SpringBoot上传文件</title>
+    <meta name="keywords" content="keyword1,keyword2,keyword3"/>
+    <meta name="description" content="this is my page"/>
+    <meta name="content-type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<form enctype="multipart/form-data" method="post" action="upload">
+    图片：<input type="file" name="file"/>
+    <input type="submit" value="上传"/>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<form enctype="multipart/form-data" method="post" action="uploadFiles">
+    图片：<input type="file" name="file"/><br>
+    图片：<input type="file" name="file"/><br>
+    图片：<input type="file" name="file"/><br>
+    <input type="submit" value="上传全部"/>
+</form>
+</body>
+</html>
