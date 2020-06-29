@@ -1,6 +1,5 @@
 package com.zhoutianyu.learnspringboot.test;
 
-import com.zhoutianyu.learnspringboot.exception.FieldInvalidException;
 import com.zhoutianyu.learnspringboot.response.BaseResponse;
 import com.zhoutianyu.learnspringboot.response.StatusCodeEnum;
 import org.slf4j.Logger;
@@ -25,8 +24,4 @@ public class SomethingController {
         return param;
     }
 
-    @GetMapping(value = "/exception/test")
-    public void function(String paramType) {
-        throw new FieldInvalidException("paramType is null");
-    }
 }

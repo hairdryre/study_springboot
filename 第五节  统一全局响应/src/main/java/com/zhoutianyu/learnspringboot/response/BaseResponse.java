@@ -10,6 +10,7 @@ public class BaseResponse<T> {
     private String message;
 
     private T data;
+    private Long total;
 
     public BaseResponse(int code, String message) {
         this.code = code;
