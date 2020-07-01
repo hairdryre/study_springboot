@@ -2,7 +2,6 @@ package com.zhoutianyu.learnspringboot.lock.single;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.zhoutianyu.learnspringboot.exception.FormRepeatException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -38,7 +37,7 @@ public class LockMethodInterceptor {
         if (!StringUtils.isEmpty(key)) {
             if (CACHES.getIfPresent(key) != null) {
                 //if key exist in caches
-                throw new FormRepeatException("重复提交");
+                throw new RuntimeException("重复提交");
             } else {
                 //put key into caches when the first time
                 CACHES.put(key, key);

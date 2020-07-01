@@ -30,9 +30,3 @@ spring:
   #springboot版本可能与druid版本不兼容，使用下面的配置兼容
   main:
     allow-bean-definition-overriding: true
-
-  flyway:
-    baseline-on-migrate: true
-    clean-disabled: true
-    locations: classpath:/flyway/pro
-    out-of-order: true
