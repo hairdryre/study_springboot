@@ -26,13 +26,4 @@ public class CronDemo {
     public void schedule2() {
         System.out.println(Thread.currentThread().hashCode());
     }
-
-    @Bean
-    public Executor getExecutor() {
-        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-        executor.setCorePoolSize(5);
-        executor.setMaxPoolSize(5);
-        executor.initialize();
-        return executor;
-    }
 }
