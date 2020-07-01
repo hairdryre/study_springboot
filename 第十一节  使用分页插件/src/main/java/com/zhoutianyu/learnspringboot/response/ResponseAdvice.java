@@ -1,5 +1,6 @@
 package com.zhoutianyu.learnspringboot.response;
 
+import com.zhoutianyu.learnspringboot.interceptor.PageHelperThreadLocal;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.server.ServerHttpRequest;
@@ -24,10 +25,16 @@ public class ResponseAdvice implements ResponseBodyAdvice {
             return data;
         }
 
-        return new BaseResponse<>(StatusCodeEnum.SUCCESS, data);
+        BaseResponse baseResponse = new BaseResponse<>(StatusCodeEnum.SUCCESS, data);
+        //适配数量
+        if (null != PageHelperThreadLocal.getPageInfo().getTotal()) {
+            baseResponse.setTotal(PageHelperThreadLocal.getPageInfo().getTotal());
+        }
+
+        return baseResponse;
     }
 
     private boolean isResponseType(Object data) {
-        return data instanceof BaseResponse || data instanceof ExceptionResponse;
+        return data instanceof BaseResponse;
     }
 }
