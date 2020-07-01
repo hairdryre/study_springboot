@@ -29,18 +29,19 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- mybatis依赖-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${springboot.mybatis.starter.version}</version>
-        </dependency>
+
 
         <!-- druid start-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${springboot.druid.starter.version}</version>
+        </dependency>
+        <!-- mybatis依赖可拿到了JDBC得依赖-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${springboot.mybatis.starter.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>

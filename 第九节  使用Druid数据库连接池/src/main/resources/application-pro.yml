@@ -12,9 +12,9 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     druid:
       # 配置数据源类型
-      url: jdbc:mysql://localhost:3306/basessm?useUnicode=true&characterEncoding=UTF-8
+      url: jdbc:mysql://localhost:3306/basessm?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
       username: root
-      password: 3333
+      password: fD520yBjHVmHK/jBzMvJNnhUhigWgDgkxLChwzwWvO3Eco3++cO+zq0RGqo1qWb9rFF/A+rfiAJJoKrtv9BZhA==
       # 初始化，最小，最大连接数
       initialSize: 10
       minidle: 10
@@ -27,6 +27,12 @@ spring:
       validationQuery: SELECT 1 FROM dual
       # 配置监控统计拦截的filters,去掉后，监控界面的sql无法统计
       filters: stat,wall
-  #springboot版本可能与druid版本不兼容，使用下面的配置兼容
-  main:
-    allow-bean-definition-overriding: true
+
+      connectProperties:
+          config.decrypt: true
+          #公钥${publicKey}
+          config.decrypt.key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJU/4SOVwtf/vbv11EvHjxwshhgR9SpL30I/LPvuOFL28e7sEpW48m3IhDMksLGetqLp/sb3x5AC+N0p48TUwZsCAwEAAQ==
+      #开启 druid 密码解密功能
+      filter:
+        config:
+          enabled: true

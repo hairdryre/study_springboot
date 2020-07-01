@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * 参考https://www.cnblogs.com/NeverCtrl-C/p/8024580.html
  */
 @Configuration
+@SuppressWarnings(value = "unchecked")
 public class DruidConfig {
 
     @Bean
