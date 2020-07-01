@@ -1,4 +1,4 @@
-package com.zhoutianyu.learnspringboot.controller;
+package com.zhoutianyu.learnspringboot.mybatis.controller;
 
 import com.zhoutianyu.learnspringboot.mybatis.User;
 import com.zhoutianyu.learnspringboot.mybatis.UserMapper;

@@ -1,0 +1,23 @@
+server:
+  servlet:
+    #项目根目录
+    context-path: /study/springboot
+spring:
+  #激活的分支
+  profiles:
+    active: dev
+  banner:
+    charset: UTF-8
+  http:
+    encoding:
+      force-response: true
+
+
+mybatis-plus:
+  mapper-locations: classpath*:mybatis/mapper/**.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    jdbc-type-for-null: 'NULL'
+    map-underscore-to-camel-case: true
+  global-config:
+    banner: true
