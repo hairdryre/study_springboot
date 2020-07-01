@@ -28,6 +28,6 @@ public class ResponseAdvice implements ResponseBodyAdvice {
     }
 
     private boolean isResponseType(Object data) {
-        return data instanceof BaseResponse || data instanceof ExceptionResponse;
+        return data instanceof BaseResponse;
     }
 }
