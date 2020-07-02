@@ -62,70 +62,76 @@
             <id>dev</id>
             <build>
                 <finalName>DEV20191112</finalName>
+                <resources>
+                    <!-- 打resources目录下的全部 -->
+                    <resource>
+                        <directory>src/main/resources/</directory>
+                        <!-- 除了yml-->
+                        <excludes>
+                            <exclude>**.yml</exclude>
+                        </excludes>
+                    </resource>
+
+                    <!-- 指定到底打哪个yml-->
+                    <resource>
+                        <filtering>true</filtering>
+                        <directory>src/main/resources/</directory>
+                        <includes>
+                            <include>application.yml</include>
+                            <include>application-dev.yml</include>
+                        </includes>
+                    </resource>
+
+                    <!-- dev文件夹包下的文件会打到根目录classpath下 -->
+                    <resource>
+                        <directory>src/main/resources/dev</directory>
+                    </resource>
+
+                </resources>
             </build>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
         </profile>
+
+        <!-- 打resources下得全部与test包下的文件-->
         <profile>
             <id>test</id>
             <build>
                 <finalName>TEST20191112</finalName>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/</directory>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources/test</directory>
+                    </resource>
+                </resources>
             </build>
         </profile>
         <profile>
             <id>pro</id>
             <build>
                 <finalName>PRO20191112</finalName>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources/</directory>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources/pro</directory>
+                    </resource>
+                </resources>
             </build>
         </profile>
     </profiles>
 
     <build>
-        <resources>
-            <!-- 指明资源目录，我这里比较暴力，全部导入，不多BB-->
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <!--<excludes>-->
-                <!--<exclude>application-dev.yml</exclude>-->
-                <!--<exclude>application-pro.yml</exclude>-->
-                <!--<exclude>application-test.yml</exclude>-->
-                <!--</excludes>-->
-            </resource>
-            <!--<resource>-->
-            <!--<directory>src/main/resources</directory>-->
-            <!--<filtering>true</filtering>-->
-            <!--<includes>-->
-            <!--<include>application-${env}.yml</include>-->
-            <!--</includes>-->
-            <!--</resource>-->
-        </resources>
-
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <plugin>
-                <artifactId>maven-resources-plugin</artifactId>
-                <configuration>
-                    <encoding>utf-8</encoding>
-                    <useDefaultDelimiters>true</useDefaultDelimiters>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <fork>true</fork>
-                    <!-- your javac path-->
-                    <executable>C:\Program Files\Java\jdk1.8.0_45\bin\javac</executable>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 

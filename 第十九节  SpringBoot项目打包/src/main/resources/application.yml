@@ -3,12 +3,9 @@ server:
     #项目根目录
     context-path: /study/springboot
 spring:
-  application:
-    #项目名称
-    name: web-study-springboot
   #激活的分支
   profiles:
-    active: dev
+    active: test
   http:
     encoding:
       charset: UTF-8
@@ -26,13 +23,6 @@ logging:
   pattern:
       console: '%d{HH:mm:ss.SSS} %-5level %logger{36} [%line] - %msg%n'
 
-#自定义参数
-define:
-  userinfo:
-    username: zhoutianyu
-    age: 24
-    position: java engineer
-  department:
-    name: 研发部门
+
 
 
