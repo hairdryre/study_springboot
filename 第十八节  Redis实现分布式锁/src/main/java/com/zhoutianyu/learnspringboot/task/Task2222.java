@@ -1,7 +1,6 @@
-package com.zhoutianyu.learnspringboot.redis.task;
+package com.zhoutianyu.learnspringboot.task;
 
 import com.zhoutianyu.learnspringboot.redis.RedisService;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +10,15 @@ import org.springframework.stereotype.Component;
 
 @EnableScheduling
 @Component
-public class SomeTask {
-    private static final Logger LOGGER = LoggerFactory.getLogger(SomeTask.class);
+public class Task2222 {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Task2222.class);
 
     @Autowired
     private RedisService redisService;
 
     private static final String TASK_ID = "1";
+    private static final String VALUE = "value";
+    private static final Long TIME_OUT = 60L;
 
     //each 30s execute
     @Scheduled(cron = "*/30 * * * * ?")
@@ -30,25 +31,14 @@ public class SomeTask {
                 return;
             }
             //add lock , time:60s
-            String value = randomString();
-            redisService.setEx(key, value, 60L);
+            redisService.setEx(key, VALUE, TIME_OUT);
 
             System.out.println("定时任务执行");
-            //模拟40s的业务时间
-            Thread.sleep(40);
 
             //release lock
-            if (value.equals(redisService.get(key))) {
-                redisService.del(key);
-            }
-
+            redisService.del(key);
         } catch (Exception e) {
             redisService.del(key);
         }
     }
-
-    private String randomString() {
-        return RandomStringUtils.randomAlphanumeric(10);
-    }
 }
-
