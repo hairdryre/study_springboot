@@ -1,4 +1,4 @@
-package com.zhoutianyu.learnspringboot.redis;
+package com.zhoutianyu.learnspringboot.redis.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
