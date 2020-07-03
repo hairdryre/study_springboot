@@ -1,0 +1,2 @@
+#ÓÃ¶ººÅ¸ô¿ª
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.zhoutianyu.learnspringboot.config.MyConfig
