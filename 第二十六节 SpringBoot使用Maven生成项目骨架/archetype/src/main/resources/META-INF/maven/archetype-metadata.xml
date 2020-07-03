@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor
+        xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd"
+        name="demo"
+        xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <!-- 骨架配置文件：配置生成的多模块包，并且配置哪些文件需要被生成 -->
+    <modules>
+        <module id="${rootArtifactId}-controller" dir="__rootArtifactId__-controller"
+                name="${rootArtifactId}-controller">
+            <fileSets>
+                <!-- packaged 表示生成包路径，坑死我了，为无知留下了眼泪-->
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+
+        <module id="${rootArtifactId}-start" dir="__rootArtifactId__-start" name="${rootArtifactId}-start">
+            <fileSets>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                    <includes>
+                        <include>**/*.xml</include>
+                        <include>**/*.properties</include>
+                        <include>**/*.yml</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/test/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/test/resources</directory>
+                    <includes>
+                        <include>**/*.xml</include>
+                        <include>**/*.properties</include>
+                        <include>**/*.yml</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+    </modules>
+</archetype-descriptor>
