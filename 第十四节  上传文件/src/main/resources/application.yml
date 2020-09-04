@@ -26,7 +26,10 @@ pagehelper:
 #自定义参数
 define:
   nginx:
-     path: D:\uploadFile\
+  #windows path
+     #path: D:\upload\
+  #linux path
+     path: /etc/upload/
 
 
 
